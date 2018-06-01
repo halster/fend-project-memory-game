@@ -54,11 +54,11 @@ function shuffle(array) {
 
 function compareCards(openCards){
   if (openCards[0].innerHTML===openCards[1].innerHTML){
-    console.log("cards match");
     doMatch();
   }
   else{
     console.log("cards don't match");
+    doNotMatch();
   };
 };
 
@@ -70,3 +70,13 @@ function doMatch(){
     console.log(openCards.length+"cards open");
   openCards=[];
 };
+
+function doNotMatch(){
+  openCards.forEach(function(card){
+    card.classList.add("noMatch"); 
+    setTimeout(function(){
+      card.classList.remove('show', 'open', 'noMatch');
+      openCards=[];
+    },2000);
+  });
+}
