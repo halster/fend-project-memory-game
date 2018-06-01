@@ -41,8 +41,9 @@ function shuffle(array) {
 
  allCards.forEach(function(card){
    card.addEventListener('click', function(e) {
+
+     if (openCards.length<2){
      openCards.push(card);
-     if (openCards.length<=2){
      card.classList.add('open', 'show');
      }
      if (openCards.length>=2){
@@ -62,9 +63,10 @@ function compareCards(openCards){
 };
 
 function doMatch(){
-  setTimeout(function(){
     openCards.forEach(function(card){
       card.classList.add('match');
-    })
-  },300)
-}
+      card.classList.remove('show', 'open');
+    });
+    console.log(openCards.length+"cards open");
+  openCards=[];
+};
