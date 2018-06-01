@@ -38,6 +38,7 @@ function shuffle(array) {
  */
  var allCards = document.querySelectorAll('.card');
  var openCards = [];  //Use this var to count how many cards are open
+ var turns = 0;
 
  allCards.forEach(function(card){
    card.addEventListener('click', function(e) {
@@ -48,6 +49,9 @@ function shuffle(array) {
      }
      if (openCards.length>=2){
        compareCards(openCards); //compares the open cards
+       turns++;
+       openCards=[];
+       console.log(turns+" turns");
      }
    })
  });
@@ -68,15 +72,13 @@ function doMatch(){
       card.classList.remove('show', 'open');
     });
     console.log(openCards.length+"cards open");
-  openCards=[];
 };
 
 function doNotMatch(){
   openCards.forEach(function(card){
-    card.classList.add("noMatch"); 
+    card.classList.add("noMatch");
     setTimeout(function(){
       card.classList.remove('show', 'open', 'noMatch');
-      openCards=[];
     },2000);
   });
 }
