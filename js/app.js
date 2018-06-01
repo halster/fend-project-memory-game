@@ -85,4 +85,13 @@ function doNotMatch(){
 function turnCount(){
   moves++;
   document.querySelector('.moves').innerText=moves;
+  checkStars();
+}
+
+function checkStars(){
+  if (moves>=3){
+    var star = document.getElementsByClassName('stars');
+    console.log(star);
+    star.parentNode.removeChild();
+  }
 }
