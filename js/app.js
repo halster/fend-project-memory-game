@@ -42,12 +42,29 @@ function shuffle(array) {
  allCards.forEach(function(card){
    card.addEventListener('click', function(e) {
      openCards.push(card);
-     if(openCards.length>=2){
-       //hide
+     if (openCards.length<=2){
+     card.classList.add('open', 'show');
      }
-     else{
-       card.classList.add('open', 'show');
+     if (openCards.length>=2){
+       compareCards(openCards); //compares the open cards
      }
-
    })
  });
+
+function compareCards(openCards){
+  if (openCards[0].innerHTML===openCards[1].innerHTML){
+    console.log("cards match");
+    doMatch();
+  }
+  else{
+    console.log("cards don't match");
+  };
+};
+
+function doMatch(){
+  setTimeout(function(){
+    openCards.forEach(function(card){
+      card.classList.add('match');
+    })
+  },300)
+}
