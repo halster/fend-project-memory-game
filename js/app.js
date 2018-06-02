@@ -39,6 +39,7 @@ function shuffle(array) {
  var allCards = document.querySelectorAll('.card');
  var openCards = [];  //Use this var to count how many cards are open
  var moves = 0;
+ var matches = 0;
 
  allCards.forEach(function(card){
    card.addEventListener('click', function(e) {
@@ -71,6 +72,10 @@ function doMatch(){
       card.classList.remove('show', 'open');
     });
     console.log(openCards.length+"cards open");
+    matches++;
+    if(matches = 8){
+    youWin();
+    }
 };
 
 function doNotMatch(){
@@ -101,4 +106,8 @@ function checkStars(){
     const star1 = document.querySelector("#star1");
     star1.classList.add("darken");
   }
+};
+
+function youWin(){
+  //need to make a modal pop up congratulating winner! 
 };
