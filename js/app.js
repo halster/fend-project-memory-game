@@ -50,7 +50,7 @@ function shuffle(array) {
      }
      if (openCards.length>=2){
       turnCount();
-       compareCards(openCards); //compares the open cards 
+       compareCards(openCards); //compares the open cards
        openCards=[];
      }
    })
@@ -66,6 +66,7 @@ function compareCards(openCards){
   };
 };
 
+//changes cards color and makes them stay open if the cards match.
 function doMatch(){
     openCards.forEach(function(card){
       card.classList.add('match');
@@ -78,6 +79,7 @@ function doMatch(){
     }
 };
 
+//changes cards color and closes if they don't match.
 function doNotMatch(){
   openCards.forEach(function(card){
     card.classList.add("noMatch");
@@ -87,31 +89,34 @@ function doNotMatch(){
   });
 };
 
+// updates the turn count at the top of the game
 function turnCount(){
   moves++;
   document.querySelector('.moves').innerText=moves;
   checkStars();
 };
 
+//decrease stars as turns go on
 function checkStars(){
-  if (moves === 3){
+  if (moves === 10){
     const star3 = document.querySelector("#star3");
     star3.classList.add("darken");
   }
-  else if(moves===5){
+  else if(moves===13){
     const star2 = document.querySelector("#star2");
     star2.classList.add("darken");
   }
-  else if (moves===6){
+  else if (moves===16){
     const star1 = document.querySelector("#star1");
     star1.classList.add("darken");
   }
 };
 
+//modal pop up congratulating winner!
 function youWin(){
   var modal = document.getElementById('myModal');
   document.querySelector('#movesToWin').innerText=moves;
   modal.style.display = "block";
   console.log(matches+ " matches made with "+ moves +"moves.");
-  //need to make a modal pop up congratulating winner!
+
 };
