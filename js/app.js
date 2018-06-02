@@ -49,8 +49,8 @@ function shuffle(array) {
      card.classList.add('open', 'show');
      }
      if (openCards.length>=2){
-       compareCards(openCards); //compares the open cards
-       turnCount();
+      turnCount();
+       compareCards(openCards); //compares the open cards 
        openCards=[];
      }
    })
@@ -73,7 +73,7 @@ function doMatch(){
     });
     matches++;
     console.log(openCards.length+"cards open and " + matches + "matches made");
-    if (matches === 8){
+    if (matches === 1){
     youWin();
     }
 };
@@ -110,7 +110,8 @@ function checkStars(){
 
 function youWin(){
   var modal = document.getElementById('myModal');
+  document.querySelector('#movesToWin').innerText=moves;
   modal.style.display = "block";
-  console.log(matches+ " matches made");
+  console.log(matches+ " matches made with "+ moves +"moves.");
   //need to make a modal pop up congratulating winner!
 };

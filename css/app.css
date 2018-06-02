@@ -117,7 +117,8 @@ h1 {
 }
 
 /*
-*Styles for congratulations modal
+*Styles for congratulations modal.
+* Started with code from https://www.w3schools.com/howto/howto_css_modals.asp 
 */
 .modal {
     display: none; /* Hidden until you win */
