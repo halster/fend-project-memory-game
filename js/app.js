@@ -78,20 +78,27 @@ function doNotMatch(){
     card.classList.add("noMatch");
     setTimeout(function(){
       card.classList.remove('show', 'open', 'noMatch');
-    },2000);
+    },1000);
   });
-}
+};
 
 function turnCount(){
   moves++;
   document.querySelector('.moves').innerText=moves;
   checkStars();
-}
+};
 
 function checkStars(){
-  if (moves>=3){
-    var star = document.getElementsByClassName('stars');
-    console.log(star);
-    star.parentNode.removeChild();
+  if (moves === 3){
+    const star3 = document.querySelector("#star3");
+    star3.classList.add("darken");
   }
-}
+  else if(moves===5){
+    const star2 = document.querySelector("#star2");
+    star2.classList.add("darken");
+  }
+  else if (moves===6){
+    const star1 = document.querySelector("#star1");
+    star1.classList.add("darken");
+  }
+};
