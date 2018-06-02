@@ -74,7 +74,7 @@ function doMatch(){
     });
     matches++;
     console.log(openCards.length+"cards open and " + matches + "matches made");
-    if (matches === 1){
+    if (matches === 8){
     youWin();
     }
 };
@@ -118,5 +118,4 @@ function youWin(){
   document.querySelector('#movesToWin').innerText=moves;
   modal.style.display = "block";
   console.log(matches+ " matches made with "+ moves +"moves.");
-
 };
