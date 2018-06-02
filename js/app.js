@@ -60,7 +60,7 @@ function compareCards(openCards){
   if (openCards[0].innerHTML===openCards[1].innerHTML){
     doMatch();
   }
-  else{
+  else {
     console.log("cards don't match");
     doNotMatch();
   };
@@ -71,9 +71,9 @@ function doMatch(){
       card.classList.add('match');
       card.classList.remove('show', 'open');
     });
-    console.log(openCards.length+"cards open");
     matches++;
-    if(matches = 8){
+    console.log(openCards.length+"cards open and " + matches + "matches made");
+    if (matches === 8){
     youWin();
     }
 };
@@ -109,5 +109,8 @@ function checkStars(){
 };
 
 function youWin(){
-  //need to make a modal pop up congratulating winner! 
+  var modal = document.getElementById('myModal');
+  modal.style.display = "block";
+  console.log(matches+ " matches made");
+  //need to make a modal pop up congratulating winner!
 };
