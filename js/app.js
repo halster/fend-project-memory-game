@@ -1,8 +1,26 @@
 /*
  * Create a list that holds all of your cards
  */
-let cardDesign=["fa fa-lightbulb-o", "fa fa-lightbulb-o","fa fa-space-shuttle","fa fa-space-shuttle","fa fa-rocket", "fa fa-rocket","fa fa-umbrella", "fa fa-umbrella", "fa fa-book", "fa fa-book", "fa fa-birthday-cake", "fa fa-birthday-cake", "fa fa-snowflake-o", "fa fa-snowflake-o", "fa fa-bug", "fa fa-bug",]
+let cardDesign=["fa fa-lightbulb-o", "fa fa-lightbulb-o","fa fa-space-shuttle","fa fa-space-shuttle","fa fa-rocket", "fa fa-rocket","fa fa-umbrella", "fa fa-umbrella", "fa fa-book", "fa fa-book", "fa fa-birthday-cake", "fa fa-birthday-cake", "fa fa-meh-o", "fa fa-meh-o", "fa fa-bug", "fa fa-bug",]
 
+document.addEventListener("DOMContentLoaded", function(){
+  cardDesign=shuffle(cardDesign);
+  console.log(cardDesign);
+  makeCards(cardDesign);
+})
+
+
+//This function appears to make the cards and when I add the show class the cards are shuffling and appearing.  But the event listener for the cards is not working.  :-(
+function makeCards(cardDesign){
+  const myDeck = document.querySelector('.deck');
+
+  for (let j = 0; j < 16; j++) {
+    const newElement = document.createElement('li');
+    newElement.classList.add('card');
+    newElement.innerHTML = '<i class= "' + cardDesign[j]+ '"> </i>';
+    myDeck.appendChild(newElement);
+  }
+};
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
