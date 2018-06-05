@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+let cardDesign=["fa fa-lightbulb-o", "fa fa-lightbulb-o","fa fa-space-shuttle","fa fa-space-shuttle","fa fa-rocket", "fa fa-rocket","fa fa-umbrella", "fa fa-umbrella", "fa fa-book", "fa fa-book", "fa fa-birthday-cake", "fa fa-birthday-cake", "fa fa-snowflake-o", "fa fa-snowflake-o", "fa fa-bug", "fa fa-bug",]
 
 /*
  * Display the cards on the page
