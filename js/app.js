@@ -1,19 +1,20 @@
-/*
- * Create a list that holds all of your cards
- */
+
 let cardDesign=["fa fa-lightbulb-o", "fa fa-lightbulb-o","fa fa-space-shuttle","fa fa-space-shuttle","fa fa-rocket", "fa fa-rocket","fa fa-umbrella", "fa fa-umbrella", "fa fa-book", "fa fa-book", "fa fa-birthday-cake", "fa fa-birthday-cake", "fa fa-meh-o", "fa fa-meh-o", "fa fa-bug", "fa fa-bug",]
+let openCards = [];  //Use this var to count how many cards are open
+let moves = 0;
+let matches = 0;
 
 document.addEventListener("DOMContentLoaded", function(){
   cardDesign=shuffle(cardDesign);
   console.log(cardDesign);
   makeCards(cardDesign);
-})
+  let allCards = document.querySelectorAll('.card');
+  init(allCards);//this sets up the event listeners on the cards and starts checking them.
+});
 
 
-//This function appears to make the cards and when I add the show class the cards are shuffling and appearing.  But the event listener for the cards is not working.  :-(
 function makeCards(cardDesign){
   const myDeck = document.querySelector('.deck');
-
   for (let j = 0; j < 16; j++) {
     const newElement = document.createElement('li');
     newElement.classList.add('card');
@@ -54,11 +55,8 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
- var allCards = document.querySelectorAll('.card');
- var openCards = [];  //Use this var to count how many cards are open
- var moves = 0;
- var matches = 0;
 
+function init(allCards){
  allCards.forEach(function(card){
    card.addEventListener('click', function(e) {
 
@@ -73,6 +71,7 @@ function shuffle(array) {
      }
    })
  });
+};
 
 function compareCards(openCards){
   if (openCards[0].innerHTML===openCards[1].innerHTML){
