@@ -1,8 +1,9 @@
-
+//initialize variables
 let cardDesign=["fa fa-lightbulb-o", "fa fa-lightbulb-o","fa fa-space-shuttle","fa fa-space-shuttle","fa fa-rocket", "fa fa-rocket","fa fa-umbrella", "fa fa-umbrella", "fa fa-book", "fa fa-book", "fa fa-birthday-cake", "fa fa-birthday-cake", "fa fa-meh-o", "fa fa-meh-o", "fa fa-bug", "fa fa-bug",]
 let openCards = [];  //Use this var to count how many cards are open
 let moves = 0;
 let matches = 0;
+let starCount =3;
 
 document.addEventListener("DOMContentLoaded", function(){
   cardDesign=shuffle(cardDesign);
@@ -118,14 +119,17 @@ function checkStars(){
   if (moves === 10){
     const star3 = document.querySelector("#star3");
     star3.classList.add("darken");
+    starCount=2;
   }
   else if(moves===13){
     const star2 = document.querySelector("#star2");
     star2.classList.add("darken");
+    starCount=1;
   }
   else if (moves===16){
     const star1 = document.querySelector("#star1");
     star1.classList.add("darken");
+    starCount=0;
   }
 };
 
@@ -133,6 +137,7 @@ function checkStars(){
 function youWin(){
   var modal = document.getElementById('myModal');
   document.querySelector('#movesToWin').innerText=moves;
+  document.querySelector('#starsLeft').innerText=starCount;
   modal.style.display = "block";
   console.log(matches+ " matches made with "+ moves +"moves.");
 };
