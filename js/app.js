@@ -4,12 +4,14 @@ let openCards = [];  //Use this var to count how many cards are open
 let moves = 0;
 let matches = 0;
 let starCount =3;
+let seconds=0;
 
 document.addEventListener("DOMContentLoaded", function(){
   cardDesign=shuffle(cardDesign);
   console.log(cardDesign);
   makeCards(cardDesign);
   let allCards = document.querySelectorAll('.card');
+  timer();
   init(allCards);//this sets up the event listeners on the cards and starts checking them.
 });
 
@@ -60,7 +62,6 @@ function shuffle(array) {
 function init(allCards){
  allCards.forEach(function(card){
    card.addEventListener('click', function(e) {
-
      if (openCards.length<2){
      openCards.push(card);
      card.classList.add('open', 'show');
@@ -74,6 +75,17 @@ function init(allCards){
  });
 };
 
+
+//timer function to keep track of the time. This counts time but starts as soon as the page is loaded.  Time needs to start when first card is clicked. 
+function timer(){
+  setInterval(function(){
+    seconds++;
+    document.querySelector('.time').innerText=seconds+" seconds";
+    console.log(seconds);
+  },1000);
+};
+
+//compares the open cards to see if they match.
 function compareCards(openCards){
   if (openCards[0].innerHTML===openCards[1].innerHTML){
     doMatch();
