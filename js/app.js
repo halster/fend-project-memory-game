@@ -5,13 +5,14 @@ let moves = 0;
 let matches = 0;
 let starCount =3;
 let seconds=0;
+let startTime=0;
+let timerId = 0;
 
 document.addEventListener("DOMContentLoaded", function(){
   cardDesign=shuffle(cardDesign);
   console.log(cardDesign);
   makeCards(cardDesign);
   let allCards = document.querySelectorAll('.card');
-  timer();
   init(allCards);//this sets up the event listeners on the cards and starts checking them.
 });
 
@@ -62,6 +63,9 @@ function shuffle(array) {
 function init(allCards){
  allCards.forEach(function(card){
    card.addEventListener('click', function(e) {
+     if (startTime===0){
+       timer();
+     }
      if (openCards.length<2){
      openCards.push(card);
      card.classList.add('open', 'show');
@@ -76,11 +80,12 @@ function init(allCards){
 };
 
 
-//timer function to keep track of the time. This counts time but starts as soon as the page is loaded.  Time needs to start when first card is clicked. 
+//timer function to keep track of the time. This counts time but starts as soon as the page is loaded.  Time needs to start when first card is clicked.
 function timer(){
-  setInterval(function(){
+  startTime=1;
+  timerId = setInterval(function(){
     seconds++;
-    document.querySelector('.time').innerText=seconds+" seconds";
+    document.querySelector('.time').innerText=seconds;
     console.log(seconds);
   },1000);
 };
@@ -104,7 +109,8 @@ function doMatch(){
     });
     matches++;
     console.log(openCards.length+"cards open and " + matches + "matches made");
-    if (matches === 8){
+    if (matches === 2){
+      clearInterval(timerId);
     youWin();
     }
 };
@@ -150,6 +156,7 @@ function youWin(){
   var modal = document.getElementById('myModal');
   document.querySelector('#movesToWin').innerText=moves;
   document.querySelector('#starsLeft').innerText=starCount;
+  document.querySelector('#time').innerText=seconds;
   modal.style.display = "block";
   console.log(matches+ " matches made with "+ moves +"moves.");
 };
