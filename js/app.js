@@ -5,6 +5,7 @@ let moves = 0;
 let matches = 0;
 let starCount =3;
 let seconds=0;
+ let minutes=0;
 let startTime=0;
 let timerId = 0;
 
@@ -85,7 +86,14 @@ function timer(){
   startTime=1;
   timerId = setInterval(function(){
     seconds++;
-    document.querySelector('.time').innerText=seconds;
+    if(seconds===60){
+      minutes++;
+      seconds=0;
+    }
+    if (seconds<10){
+      seconds="0"+seconds;
+    }
+    document.querySelector('.time').innerText=minutes +":"+ seconds;
     console.log(seconds);
   },1000);
 };
@@ -156,7 +164,7 @@ function youWin(){
   var modal = document.getElementById('myModal');
   document.querySelector('#movesToWin').innerText=moves;
   document.querySelector('#starsLeft').innerText=starCount;
-  document.querySelector('#time').innerText=seconds;
+  document.querySelector('#time').innerText=minutes +":"+seconds;
   modal.style.display = "block";
   console.log(matches+ " matches made with "+ moves +"moves.");
 };
