@@ -5,7 +5,7 @@ let moves = 0;
 let matches = 0;
 let starCount =3;
 let seconds=0;
- let minutes=0;
+let minutes=0;
 let startTime=0;
 let timerId = 0;
 
@@ -13,8 +13,12 @@ document.addEventListener("DOMContentLoaded", function(){
   start();
 });
 
+document.querySelector(".restart").addEventListener("click", start);
+
 // use this function to set up the page in the beginning and to reset the page.
 function start(){
+  var ul=document.querySelector(".deck");
+  ul.innerHTML="";
   openCards = [];
   moves = 0;
   matches = 0;
@@ -24,6 +28,7 @@ function start(){
   startTime=0;
   timerId = 0;
 
+  console.log(document.getElementsByClassName("deck").innerHTML);
   cardDesign=shuffle(cardDesign);
   makeCards(cardDesign);
   let allCards = document.querySelectorAll('.card');
