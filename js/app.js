@@ -9,14 +9,14 @@ let starCount =3;
 let seconds=0;
 let minutes=0;
 let startTime=0;
-let timerId = 0;
+let timerId;
 
 document.addEventListener("DOMContentLoaded", function(){
   start();
 });
 
 document.querySelector(".restart").addEventListener("click", start);
-document.querySelector("#button").addEventListener("click", start);
+
 // use this function to set up the page in the beginning and to reset the page.
 function start(){
   var ul=document.querySelector(".deck");
@@ -32,7 +32,6 @@ function start(){
   seconds=0;
   minutes=0;
   startTime=0;
-  timerId = 0;
   clearInterval(timerId);
   var modal = document.getElementById('myModal');
   modal.style.display="none";
@@ -78,7 +77,7 @@ function init(allCards){
      }
      if (openCards.length<2){
      openCards.push(card);
-     card.classList.add('open', 'show');
+     card.classList.add('open', 'show', 'disabled');
      }
      if (openCards.length>=2){
       turnCount();
@@ -122,7 +121,7 @@ function compareCards(openCards){
 function doMatch(){
     openCards.forEach(function(card){
       card.classList.add('match');
-      card.classList.remove('show', 'open');
+      card.classList.remove('show', 'open', 'disabled');
     });
     matches++;
     console.log(openCards.length+"cards open and " + matches + "matches made");
@@ -137,7 +136,7 @@ function doNotMatch(){
   openCards.forEach(function(card){
     card.classList.add("noMatch");
     setTimeout(function(){
-      card.classList.remove('show', 'open', 'noMatch');
+      card.classList.remove('show', 'open', 'noMatch', 'disabled');
     },1000);
   });
 };
@@ -177,3 +176,5 @@ function youWin(){
   modal.style.display = "block";
   console.log(matches+ " matches made with "+ moves +"moves.");
 };
+
+document.querySelector("#button").addEventListener("click", start);

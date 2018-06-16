@@ -1,5 +1,5 @@
 # Memory Game Project
-
+  A simple game where a user flips over cards and tries to match them two at a time.  
 ## Table of Contents
 
 * [Instructions](#instructions)
