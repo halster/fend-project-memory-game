@@ -1,3 +1,5 @@
+//todo list make reset button on modal, add class to prevent clicking on same card twice. update readme. maybe figure out how to flip cards nicely?
+
 //initialize variables
 let cardDesign=["fa fa-lightbulb-o", "fa fa-lightbulb-o","fa fa-space-shuttle","fa fa-space-shuttle","fa fa-rocket", "fa fa-rocket","fa fa-umbrella", "fa fa-umbrella", "fa fa-book", "fa fa-book", "fa fa-birthday-cake", "fa fa-birthday-cake", "fa fa-meh-o", "fa fa-meh-o", "fa fa-bug", "fa fa-bug",]
 let openCards = [];  //Use this var to count how many cards are open
@@ -14,20 +16,27 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 document.querySelector(".restart").addEventListener("click", start);
-
+document.querySelector("#button").addEventListener("click", start);
 // use this function to set up the page in the beginning and to reset the page.
 function start(){
   var ul=document.querySelector(".deck");
   ul.innerHTML="";
   openCards = [];
   moves = 0;
+  document.querySelector('.moves').innerText=moves;
   matches = 0;
   starCount =3;
+  document.querySelector("#star3").classList.remove('darken');
+  document.querySelector("#star2").classList.remove('darken');
+  document.querySelector("#star1").classList.remove('darken');
   seconds=0;
   minutes=0;
   startTime=0;
   timerId = 0;
-
+  clearInterval(timerId);
+  var modal = document.getElementById('myModal');
+  modal.style.display="none";
+  document.querySelector('.time').innerText="0:00";
   console.log(document.getElementsByClassName("deck").innerHTML);
   cardDesign=shuffle(cardDesign);
   makeCards(cardDesign);

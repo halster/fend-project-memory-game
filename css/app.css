@@ -118,7 +118,7 @@ h1 {
 
 /*
 *Styles for congratulations modal.
-* Started with code from https://www.w3schools.com/howto/howto_css_modals.asp 
+* Started with code from https://www.w3schools.com/howto/howto_css_modals.asp
 */
 .modal {
     display: none; /* Hidden until you win */
@@ -140,4 +140,13 @@ h1 {
     text-align: center;
     font-size: 2em;
     border: 5px solid #02ccba;
+    border-radius: 15px;
     width: 50%;
+
+}
+button {
+  border-radius: 15px ;
+  font-size: 1em;
+  padding:20px;
+  background-color: #02CCBA;
+}
