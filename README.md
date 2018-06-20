@@ -24,4 +24,4 @@ The purpose of this project is to fulfill the course requirements for Udacitys F
 Hallee Moon
 
 ## Acknowledgements
-My udacity mentor helped me figure out the timer function.  I also used Matthew Cranford's tutorials to help figure out how to get started.  My coding friends on slack were also very helpful with encouragement and tips.
+My udacity mentor helped me figure out the timer function.  I also used Matthew Cranford's tutorials to help figure out how to get started.  Adam-in from slack also helped me figure out how to disable clicking on the same card twice in a row for a match.   My coding friends on slack were also very helpful with encouragement and tips.
