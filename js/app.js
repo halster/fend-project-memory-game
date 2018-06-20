@@ -1,7 +1,5 @@
-//todo list make reset button on modal, add class to prevent clicking on same card twice. update readme. maybe figure out how to flip cards nicely?
-
 //initialize variables
-let cardDesign=["fa fa-lightbulb-o", "fa fa-lightbulb-o","fa fa-space-shuttle","fa fa-space-shuttle","fa fa-rocket", "fa fa-rocket","fa fa-umbrella", "fa fa-umbrella", "fa fa-book", "fa fa-book", "fa fa-birthday-cake", "fa fa-birthday-cake", "fa fa-meh-o", "fa fa-meh-o", "fa fa-bug", "fa fa-bug",]
+let cardDesign=["fa fa-lightbulb-o", "fa fa-lightbulb-o","fa fa-space-shuttle","fa fa-space-shuttle","fa fa-rocket", "fa fa-rocket","fa fa-umbrella", "fa fa-umbrella", "fa fa-book", "fa fa-book", "fa fa-birthday-cake", "fa fa-birthday-cake", "fa fa-meh-o", "fa fa-meh-o", "fa fa-bug", "fa fa-bug",];
 let openCards = [];  //Use this var to count how many cards are open
 let moves = 0;
 let matches = 0;
@@ -42,8 +40,7 @@ function start(){
   makeCards(cardDesign);
   let allCards = document.querySelectorAll('.card');
   init(allCards);
-
-};
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -58,7 +55,7 @@ function shuffle(array) {
     }
 
     return array;
-};
+}
 
 //takes the list of shuffled cards and turns them into html elements that get added to the page.
 function makeCards(cardDesign){
@@ -69,7 +66,7 @@ function makeCards(cardDesign){
     newElement.innerHTML = '<i class= "' + cardDesign[j]+ '"> </i>';
     myDeck.appendChild(newElement);
   }
-};
+}
 
 //this sets up the event listeners on the cards and starts checking them
 function init(allCards){
@@ -87,9 +84,9 @@ function init(allCards){
        compareCards(openCards); //compares the open cards
        openCards=[];
      }
-   })
+   });
  });
-};
+}
 
 //timer function to keep track of the time. It starts once the first card pair is clicked.
 function timer(){
@@ -105,7 +102,7 @@ function timer(){
     }
     document.querySelector('.time').innerText=minutes +":"+ seconds;
   },1000);
-};
+}
 
 //compares the open cards to see if they match.
 function compareCards(openCards){
@@ -114,8 +111,8 @@ function compareCards(openCards){
   }
   else {
     doNotMatch();
-  };
-};
+  }
+}
 
 //changes cards color and makes them stay open if the cards match.
 function doMatch(){
@@ -128,7 +125,7 @@ function doMatch(){
     clearInterval(timerId);
   youWin();
   }
-};
+}
 
 //changes cards color and closes if they don't match.
 function doNotMatch(){
@@ -138,14 +135,14 @@ function doNotMatch(){
       card.classList.remove('show', 'open', 'noMatch', 'disabled');
     },1000);
   });
-};
+}
 
 // updates the turn count at the top of the game
 function turnCount(){
   moves++;
   document.querySelector('.moves').innerText=moves;
   checkStars();
-};
+}
 
 //decrease stars as turns go on
 function checkStars(){
@@ -164,7 +161,7 @@ function checkStars(){
     star1.classList.add("darken");
     starCount=0;
   }
-};
+}
 
 //modal pop up congratulating winner!
 function youWin(){
@@ -173,7 +170,7 @@ function youWin(){
   document.querySelector('#starsLeft').innerText=starCount;
   document.querySelector('#time').innerText=minutes +":"+seconds;
   modal.style.display = "block";
-};
+}
 
 //Resets the game from the button in the popup window.
 document.querySelector("#button").addEventListener("click", start);
