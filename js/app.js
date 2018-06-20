@@ -11,10 +11,12 @@ let minutes=0;
 let startTime=0;
 let timerId;
 
+//starts game once the DOM is loaded.
 document.addEventListener("DOMContentLoaded", function(){
   start();
 });
 
+//this sets up the restart button to reset the game
 document.querySelector(".restart").addEventListener("click", start);
 
 // use this function to set up the page in the beginning and to reset the page.
@@ -39,7 +41,7 @@ function start(){
   cardDesign=shuffle(cardDesign);
   makeCards(cardDesign);
   let allCards = document.querySelectorAll('.card');
-  init(allCards);//this sets up the event listeners on the cards and starts checking them.
+  init(allCards);.
 
 };
 
@@ -58,6 +60,7 @@ function shuffle(array) {
     return array;
 };
 
+//takes the list of shuffled cards and turns them into html elements that get added to the page.
 function makeCards(cardDesign){
   const myDeck = document.querySelector('.deck');
   for (let j = 0; j < 16; j++) {
@@ -68,6 +71,7 @@ function makeCards(cardDesign){
   }
 };
 
+//this sets up the event listeners on the cards and starts checking them
 function init(allCards){
  allCards.forEach(function(card){
    card.addEventListener('click', function(e) {
@@ -87,8 +91,7 @@ function init(allCards){
  });
 };
 
-
-//timer function to keep track of the time. This counts time but starts as soon as the page is loaded.  Time needs to start when first card is clicked.
+//timer function to keep track of the time. It starts once the first card pair is clicked.
 function timer(){
   startTime=1;
   timerId = setInterval(function(){
@@ -116,15 +119,15 @@ function compareCards(openCards){
 
 //changes cards color and makes them stay open if the cards match.
 function doMatch(){
-    openCards.forEach(function(card){
-      card.classList.add('match');
-      card.classList.remove('show', 'open', 'disabled');
-    });
-    matches++;
-    if (matches === 8){
-      clearInterval(timerId);
-    youWin();
-    }
+  openCards.forEach(function(card){
+    card.classList.add('match');
+    card.classList.remove('show', 'open', 'disabled');
+  });
+  matches++;
+  if (matches === 8){
+    clearInterval(timerId);
+  youWin();
+  }
 };
 
 //changes cards color and closes if they don't match.
@@ -172,4 +175,5 @@ function youWin(){
   modal.style.display = "block";
 };
 
+//Resets the game from the button in the popup window.
 document.querySelector("#button").addEventListener("click", start);
