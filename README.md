@@ -3,18 +3,25 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Built with](#builtWith)
+* [Purpose](#purpose)
+* [Author](#author)  
+* [Acknowledgements](#Acknowledgements)
 
 ## Instructions
+Download the repo from https://github.com/halster/fend-project-memory-game.git and then open the index file.  Your goal is to match the symbols on the cards by flipping over two at a time.  If you find all 8 matches in less than 10 moves you get three stars.  If you win in less than 13 moves you have 2 stars, less than 16 is 1 star and 16 or over moves is 0 stars.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Build with
+Javascript
+html
+css
+FontAwesome  
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Purpose
+The purpose of this project is to fulfill the course requirements for Udacitys Front-End Web Development program.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Author
+Hallee Moon
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Acknowledgements
+My udacity mentor helped me figure out the timer function.  I also used Matthew Cranford's tutorials to help figure out how to get started.  My coding friends on slack were also very helpful with encouragement and tips.
