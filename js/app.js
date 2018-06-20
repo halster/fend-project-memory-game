@@ -116,7 +116,6 @@ function compareCards(openCards){
 
 //changes cards color and makes them stay open if the cards match.
 function doMatch(){
-<<<<<<< HEAD
   openCards.forEach(function(card){
     card.classList.add('match');
     card.classList.remove('show', 'open', 'disabled');
@@ -127,29 +126,6 @@ function doMatch(){
   youWin();
   }
 }
-||||||| merged common ancestors
-    openCards.forEach(function(card){
-      card.classList.add('match');
-      card.classList.remove('show', 'open', 'disabled');
-    });
-    matches++;
-    if (matches === 8){
-      clearInterval(timerId);
-    youWin();
-    }
-};
-=======
-  openCards.forEach(function(card){
-    card.classList.add('match');
-    card.classList.remove('show', 'open', 'disabled');
-  });
-  matches++;
-  if (matches === 8){
-    clearInterval(timerId);
-  youWin();
-  }
-};
->>>>>>> de7a299018c98318a5474b258c5915965d8a408c
 
 //changes cards color and closes if they don't match.
 function doNotMatch(){
