@@ -36,7 +36,6 @@ function start(){
   var modal = document.getElementById('myModal');
   modal.style.display="none";
   document.querySelector('.time').innerText="0:00";
-  console.log(document.getElementsByClassName("deck").innerHTML);
   cardDesign=shuffle(cardDesign);
   makeCards(cardDesign);
   let allCards = document.querySelectorAll('.card');
@@ -102,7 +101,6 @@ function timer(){
       seconds="0"+seconds;
     }
     document.querySelector('.time').innerText=minutes +":"+ seconds;
-    console.log(seconds);
   },1000);
 };
 
@@ -112,7 +110,6 @@ function compareCards(openCards){
     doMatch();
   }
   else {
-    console.log("cards don't match");
     doNotMatch();
   };
 };
@@ -124,8 +121,7 @@ function doMatch(){
       card.classList.remove('show', 'open', 'disabled');
     });
     matches++;
-    console.log(openCards.length+"cards open and " + matches + "matches made");
-    if (matches === 2){
+    if (matches === 8){
       clearInterval(timerId);
     youWin();
     }
@@ -174,7 +170,6 @@ function youWin(){
   document.querySelector('#starsLeft').innerText=starCount;
   document.querySelector('#time').innerText=minutes +":"+seconds;
   modal.style.display = "block";
-  console.log(matches+ " matches made with "+ moves +"moves.");
 };
 
 document.querySelector("#button").addEventListener("click", start);
