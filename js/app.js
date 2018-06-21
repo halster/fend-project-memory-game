@@ -118,7 +118,7 @@ function compareCards(openCards){
 function doMatch(){
   openCards.forEach(function(card){
     card.classList.add('match');
-    card.classList.remove('show', 'open', 'disabled');
+    card.classList.remove('show', 'open');
   });
   matches++;
   if (matches === 8){
