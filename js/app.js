@@ -156,11 +156,6 @@ function checkStars(){
     star2.classList.add("darken");
     starCount=1;
   }
-  else if (moves===16){
-    const star1 = document.querySelector("#star1");
-    star1.classList.add("darken");
-    starCount=0;
-  }
 }
 
 //modal pop up congratulating winner!
